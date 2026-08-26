@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Мои заметки</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <span class="logo">Лабораторная №9</span>
+            <span>Flask + SQLAlchemy</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">Вариант 1</p>
+            <h1>Мои заметки</h1>
+            <p>Добавляйте обычные и важные записи. Важные заметки выделяются полужирным.</p>
+        </section>
+
+        <section class="card">
+            <h2>Новая заметка</h2>
+            <form action="{{ url_for('add_note') }}" method="post">
+                <label for="text">Текст заметки</label>
+                <textarea id="text" name="text" rows="4" maxlength="2000" required
+                          placeholder="Что нужно запомнить?"></textarea>
+                <label class="checkbox-row">
+                    <input type="checkbox" name="important">
+                    <span>Важная заметка</span>
+                </label>
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <p class="message {{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <section class="notes" aria-labelledby="notes-title">
+            <div class="section-heading">
+                <h2 id="notes-title">Сохранённые заметки</h2>
+                <span class="counter">{{ notes|length }}</span>
+            </div>
+
+            {% if notes %}
+                <ul class="note-list">
+                    {% for note in notes %}
+                        <li class="note {% if note.important %}important{% endif %}">
+                            {% if note.important %}
+                                <strong>{{ note.text }}</strong>
+                                <span class="badge">Важно</span>
+                            {% else %}
+                                <span>{{ note.text }}</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty">Заметок пока нет — добавьте первую.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
+

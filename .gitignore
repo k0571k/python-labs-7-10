@@ -1,0 +1,10 @@
+**/__pycache__/
+**/.venv/
+**/.env
+**/instance/
+**/model/
+**/downloads/*
+!**/downloads/.gitkeep
+**/output/*
+!**/output/.gitkeep
+
