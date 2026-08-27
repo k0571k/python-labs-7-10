@@ -13,7 +13,7 @@ SAMPLE = {
 
 
 class FakeResponse:
-    def __init__(self, payload, status_code=200):
+    def init(self, payload, status_code=200):
         self.payload = payload
         self.status_code = status_code
 
@@ -22,7 +22,7 @@ class FakeResponse:
 
 
 class FakeSession:
-    def __init__(self, response):
+    def init(self, response):
         self.response = response
         self.call = None
 
@@ -55,6 +55,6 @@ class WeatherTests(unittest.TestCase):
             get_weather("Москва", "")
 
 
-if __name__ == "__main__":
+if __name__ == "Main":
     unittest.main()
 
