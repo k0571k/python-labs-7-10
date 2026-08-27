@@ -1,7 +1,5 @@
 """Пункты 2–3, вариант 1: отслеживание круглой метки и вывод координат."""
 
-from __future__ import annotations
-
 import argparse
 from dataclasses import dataclass
 from pathlib import Path

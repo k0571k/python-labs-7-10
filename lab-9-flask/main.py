@@ -1,9 +1,5 @@
 """Лабораторная работа №9: приложение «Заметки», вариант 1."""
 
-from __future__ import annotations
-
-from pathlib import Path
-
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -15,10 +11,6 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text, nullable=False)
     important = db.Column(db.Boolean, nullable=False, default=False)
-
-    def __repr__(self) -> str:
-        return f"Note(id={self.id}, important={self.important})"
-
 
 def create_app(test_config: dict | None = None) -> Flask:
     app = Flask(__name__)

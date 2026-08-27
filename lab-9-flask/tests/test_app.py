@@ -49,7 +49,3 @@ class NotesAppTests(unittest.TestCase):
         self.client.post("/notes", data={"text": "   "})
         with self.app.app_context():
             self.assertEqual(db.session.scalar(db.select(db.func.count(Note.id))), 0)
-
-
-if __name__ == "__main__":
-    unittest.main()

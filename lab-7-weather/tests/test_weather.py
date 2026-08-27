@@ -13,7 +13,7 @@ SAMPLE = {
 
 
 class FakeResponse:
-    def init(self, payload, status_code=200):
+    def __init__(self, payload, status_code=200):
         self.payload = payload
         self.status_code = status_code
 
@@ -22,7 +22,7 @@ class FakeResponse:
 
 
 class FakeSession:
-    def init(self, response):
+    def __init__(self, response):
         self.response = response
         self.call = None
 
@@ -53,8 +53,3 @@ class WeatherTests(unittest.TestCase):
     def test_empty_api_key_is_rejected(self):
         with self.assertRaisesRegex(WeatherError, "ключ"):
             get_weather("Москва", "")
-
-
-if __name__ == "Main":
-    unittest.main()
-

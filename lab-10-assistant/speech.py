@@ -1,7 +1,5 @@
 """Адаптеры синтеза и распознавания речи на pyttsx3, PyAudio и Vosk."""
 
-from __future__ import annotations
-
 import json
 from pathlib import Path
 

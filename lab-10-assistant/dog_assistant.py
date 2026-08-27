@@ -1,7 +1,5 @@
 """Логика голосового ассистента для Dog CEO API (вариант 1)."""
 
-from __future__ import annotations
-
 import re
 import webbrowser
 from dataclasses import dataclass
@@ -146,4 +144,3 @@ class DogAssistant:
             return CommandResult("Команда не распознана. Скажите: помощь.")
         except (AssistantError, OSError) as exc:
             return CommandResult(f"Ошибка: {exc}.")
-

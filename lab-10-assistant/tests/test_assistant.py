@@ -55,8 +55,3 @@ class AssistantTests(unittest.TestCase):
         service = DogService()
         service.current_url = "https://images.dog.ceo/breeds/hound-afghan/example.jpg"
         self.assertEqual(service.breed(), "Afghan Hound")
-
-
-if __name__ == "__main__":
-    unittest.main()
-

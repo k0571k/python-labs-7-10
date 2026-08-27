@@ -1,7 +1,5 @@
 """Пункт 1, вариант 1: перевод изображения в оттенки серого."""
 
-from __future__ import annotations
-
 import argparse
 from pathlib import Path
 
@@ -55,4 +53,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -32,8 +32,3 @@ class OpenCVTests(unittest.TestCase):
         self.assertLess(abs(detection.center[0] - 320), 12)
         self.assertLess(abs(detection.center[1] - 230), 12)
         self.assertEqual(draw_result(frame, detection).shape, frame.shape)
-
-
-if __name__ == "__main__":
-    unittest.main()
-

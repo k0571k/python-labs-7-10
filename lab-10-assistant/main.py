@@ -1,7 +1,5 @@
 """Точка запуска ассистента в голосовом или текстовом режиме."""
 
-from __future__ import annotations
-
 import argparse
 import os
 from pathlib import Path
